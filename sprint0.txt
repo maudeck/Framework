@@ -1,0 +1,20 @@
+spring mvc - API
+
+empruntController - @controller 
+    @GetMapping 
+    lister(@RequestMapping) une seule instance
+on a besoin du model view pour voir tout les vues qu'on doit appeler
+dans l'applicaiton de test on doit pouvrois cree un truc controller
+    on peut directement faire un banding 
+
+creation d'annotation :
+    -classe 
+    -methode 
+    -attribut 
+
+    pour la creer il faut savoir ou il faut l'appliquer 
+    il a besoin d'un package
+    il faut lui dire tout les noms de variable ou attribut exige dans l'annotation
+
+apres cela on creer un class pour annoter tout ca 
+puis on test tout ca dans la branche main
