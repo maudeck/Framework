@@ -61,13 +61,23 @@ public class FrontControllerServlet extends HttpServlet {
             mainURL.append('?').append(queryParameters);
         }
 
-        res.setContentType("text/html;charset=UTF-8");
-
+        res.setContentType("text/html; charset=UTF-8");
 
         try (PrintWriter out = res.getWriter()) {
-            out.println("<!DOCTYPE html><html><body>");
+            out.println("<!DOCTYPE html>");
+            out.println("<html lang=\"fr\">");
+            out.println("<head>");
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<style>");
+            out.println("body{font-family:Arial,sans-serif;margin:40px;background:#f7f7f7;color:#222;}");
+            out.println("h3{color:#0066cc;margin-bottom:8px;}");
+            out.println("ul{background:#fff;padding:20px 40px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}");
+            out.println("li{margin:8px 0;}");
+            out.println("</style>");
+            out.println("</head>");
+            out.println("<body>");
             out.println("<h3>URL actuelle:</h3> " + mainURL + "<br>");
-            out.println("<h3>Liste des controllers dans:</h3> " + controllersPackage + "<br><ul>");
+            out.println("<h3>Liste controllers:</h3> " + controllersPackage + "<br><ul>");
 
             for (String controllerName : listControllers) {
                 out.println("<li>" + controllerName + "</li>");
