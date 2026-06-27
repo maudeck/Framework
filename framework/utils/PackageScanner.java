@@ -8,6 +8,20 @@ import java.util.jar.*;
 
 public class PackageScanner {
 
+    public static List<Class<?>> getAnnotatedClassesInPackage(
+        String packageName,
+        Class<? extends Annotation> annotation
+    ) throws IOException, ClassNotFoundException {
+        List<Class<?>> classes = PackageScanner.findClassesInPackage(packageName);
+        List<Class<?>> annotated = new ArrayList<>();
+        for (Class<?> clazz : classes) {
+            if (clazz.getAnnotation(annotation) != null) {
+                annotated.add(clazz);
+            }
+        }
+        return annotated;
+    }
+
     public static List<String> getAnnotatedClassesNamesInPackage(
         String packageName,
         Class<? extends Annotation> annotation
